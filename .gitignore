@@ -1,0 +1,15 @@
+node_modules
+.env
+*_key*
+
+# Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Sensitive values
+terraform.tfvars
+terraform.tfvars.json
+
+# Crash logs
+crash.log
