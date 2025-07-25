@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         CLOUDFRONT_DIST_ID = 'E3QUCIQNPYARKD'
-        REMOTE_HOST = 'ubuntu@3.110.50.177'
+        REMOTE_HOST = 'ubuntu@15.207.116.41'
     }
 
     stages{
