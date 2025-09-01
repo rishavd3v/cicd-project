@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         CLOUDFRONT_DIST_ID = 'E3QUCIQNPYARKD'
-        REMOTE_HOST = 'ubuntu@15.207.116.41'
+        REMOTE_HOST = 'ubuntu@13.233.96.60'
     }
 
     stages{
@@ -37,7 +37,7 @@ pipeline{
             }
         }
 
-        stage('deploy to ec2') {
+        stage('deploy to ec2'){
             steps {
                 echo 'Deploying to EC2...'
                 withCredentials([sshUserPrivateKey(credentialsId:'ec2-ssh', keyFileVariable:'SSH_KEY')]){
@@ -47,6 +47,8 @@ pipeline{
                             docker stop node-app || true &&
                             docker rm node-app || true &&
                             docker run -d -p 3000:3000 --name node-app rishavd3v/node-app:latest
+
+                            sudo systemctl restart nginx
                         "
                     '''
                 }
